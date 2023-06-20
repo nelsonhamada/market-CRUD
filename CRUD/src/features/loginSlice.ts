@@ -4,11 +4,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 interface LoginState {
   name: string;
   email: string;
+  isLogged: boolean;
 }
 
 const initialState: LoginState = {
-  name: '',
-  email: '',
+  name: 'Nelson',
+  email: 'teste@teste.com',
+  isLogged: true,
 };
 
 const loginSlice = createSlice({
