@@ -1,6 +1,7 @@
 import { ReactElement, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
+import './Login.css';
 
 const Login = (props: {[key: string]:string}): ReactElement => {
 
@@ -25,7 +26,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
         <>
           <p>{name}</p>
           <p>{email}</p>
-          <button onClick={ handleClick }>Logout</button> 
+          <button onClick={ handleClick } data-test-id="logout-btn">Logout</button> 
         </> 
       :
         <>
@@ -50,7 +51,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
             onChange={ handleChange }
             />
           </label>
-          <button onClick={ handleClick }>Login</button>
+          <button onClick={ handleClick } data-testid="login-btn">Login</button>
         </>
      } 
     </div>

@@ -7,7 +7,7 @@ function App(): ReactElement {
   
   return (
     <>
-    <p>Market</p>
+    <p className="main__title">Market</p>
       <Routes>
         <Route path='/' element={ <Main /> } />
       </Routes>
