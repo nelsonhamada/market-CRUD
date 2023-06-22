@@ -1,7 +1,6 @@
-import { screen, waitFor } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderTest from './helpers/RenderTest';
-import { act } from 'react-dom/test-utils';
 
 describe('Testando funcionalidade do formulário de login.', () => {
   it('Testa se formulário é renderizado', () => {
@@ -13,18 +12,23 @@ describe('Testando funcionalidade do formulário de login.', () => {
    
   });
 
-  it('Testa se quando efetuado login renderiza nome, email de usuário e botão logout', () => {
-    renderTest('/');
+  it('Testa se quando efetuado login renderiza nome, email de usuário e botão logout', async () => {    
+    renderTest('/')  
 
-  userEvent.type(screen.getByRole('textbox', {name: /nome:/i,}), 'teste');
-  userEvent.type(screen.getByRole('textbox', {name: /email:/i,}), 'exemplo@email.com');
-  userEvent.click(screen.getByTestId('login-btn'));
-  
-  // screen.getByText(/test/i);
-  // screen.getByText(/exemplo@email\.com/i);
-  // userEvent.click(screen.getByTestId('logout-btn'));
+    fireEvent.change(screen.getByTestId('input-name'),{ target: {value:'teste'}})
+    fireEvent.change(screen.getByTestId('input-email'),{ target: {value:'exemplo@email.com'}})
+    userEvent.click(screen.getByTestId('login-btn'))
+   
+  await waitFor(() => {
+    screen.getByText(/teste/i);
+    screen.getByText(/exemplo@email\.com/i);
+    screen.getByTestId('logout-btn')
+    userEvent.click(screen.getByTestId('logout-btn'));
+  })
 
-  // screen.getByRole('textbox', {name: /nome:/i,});
+  await waitFor(() => {
+    screen.getByRole('textbox', {name: /nome:/i,});
+  })
 
   });
 })

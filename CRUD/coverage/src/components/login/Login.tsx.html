@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/10</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">77.77% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -124,29 +124,33 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,24 +200,24 @@ const Login = (props: {[key: string]:string}): ReactElement =&gt; {
   const { name, email, isLogged } = useAppSelector((state) =&gt; state.login);
   const [login, setLogin] = useState&lt;{[key: string]: string}&gt;({});
   
-  const handleChange = <span class="fstat-no" title="function not covered" >({</span> target: { name, value } }: { target: { name: string, value: string } }) =&gt; {
-<span class="cstat-no" title="statement not covered" >    setLogin({</span>
+  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }) =&gt; {
+    setLogin({
       ...login,
       [name]: value,
     })
   }
 &nbsp;
-  const handleClick = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    !isLogged? dispatch(changeName(login)) : dispatch(logout())</span>
+  const handleClick = () =&gt; {
+    !isLogged? dispatch(changeName(login)) : dispatch(logout())
   }
 &nbsp;
   return (
     &lt;div className="main__login"&gt; 
       {isLogged ?
-<span class="branch-0 cbranch-no" title="branch not covered" >        &lt;&gt;</span>
+        &lt;&gt;
           &lt;p&gt;{name}&lt;/p&gt;
           &lt;p&gt;{email}&lt;/p&gt;
-          &lt;button onClick={ handleClick } data-test-id="logout-btn"&gt;Logout&lt;/button&gt; 
+          &lt;button onClick={ handleClick } data-testid="logout-btn"&gt;Logout&lt;/button&gt; 
         &lt;/&gt; 
       :
         &lt;&gt;
@@ -223,6 +227,7 @@ const Login = (props: {[key: string]:string}): ReactElement =&gt; {
           &lt;label&gt;
               Nome:
             &lt;input
+            data-testid="input-name"
             type="text"
             name="name"
             value= { props.name }
@@ -232,6 +237,7 @@ const Login = (props: {[key: string]:string}): ReactElement =&gt; {
           &lt;label&gt;
               Email:
             &lt;input 
+            data-testid="input-email"
             type="text"
             name="email"
             value={ props.email }
@@ -253,7 +259,7 @@ export default Login;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-22T12:00:09.621Z
+                at 2023-06-22T19:36:45.575Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

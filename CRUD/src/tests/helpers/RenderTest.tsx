@@ -6,11 +6,11 @@ import { store } from '../../app/store';
 
 const renderTest = (path: string) => {
     return render (
-        <MemoryRouter initialEntries={[path]}>
-            <Provider store={ store }>
+        <Provider store={ store }>
+            <MemoryRouter initialEntries={[path]}>
                 <App />
-            </Provider>
-        </MemoryRouter>
+            </MemoryRouter>
+        </Provider>
     )
 }
 

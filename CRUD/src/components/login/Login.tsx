@@ -26,7 +26,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
         <>
           <p>{name}</p>
           <p>{email}</p>
-          <button onClick={ handleClick } data-test-id="logout-btn">Logout</button> 
+          <button onClick={ handleClick } data-testid="logout-btn">Logout</button> 
         </> 
       :
         <>
@@ -36,6 +36,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
           <label>
               Nome:
             <input
+            data-testid="input-name"
             type="text"
             name="name"
             value= { props.name }
@@ -45,6 +46,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
           <label>
               Email:
             <input 
+            data-testid="input-email"
             type="text"
             name="email"
             value={ props.email }
