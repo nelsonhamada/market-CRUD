@@ -18,7 +18,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
   }
 
   const handleClick = () => {
-    !isLogged? dispatch(changeName(login)) : dispatch(logout()), setLogin({}), setAble(false)
+    !isLogged? dispatch(changeName(login)) : dispatch(logout()), setLogin({}), setAble(false);
   }
 
   const handleValidate = () => {
