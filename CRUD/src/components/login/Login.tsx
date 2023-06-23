@@ -8,16 +8,24 @@ const Login = (props: {[key: string]:string}): ReactElement => {
   const dispatch = useAppDispatch();
   const { name, email, isLogged } = useAppSelector((state) => state.login);
   const [login, setLogin] = useState<{[key: string]: string}>({});
+  const [isAble, setAble] = useState<boolean>(false);
   
   const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }) => {
     setLogin({
       ...login,
       [name]: value,
-    })
+    }), handleValidate()
   }
 
   const handleClick = () => {
-    !isLogged? dispatch(changeName(login)) : dispatch(logout())
+    !isLogged? dispatch(changeName(login)) : dispatch(logout()), setLogin({}), setAble(false)
+  }
+
+  const handleValidate = () => {
+    const validateEmail: boolean = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(login.email);
+    const validations: [string, boolean] = [login.name , validateEmail];
+    const validate: boolean = validations.every((v) => v);
+    setAble(validate);
   }
 
   return (
@@ -53,7 +61,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
             onChange={ handleChange }
             />
           </label>
-          <button onClick={ handleClick } data-testid="login-btn">Login</button>
+          <button onClick={ handleClick } data-testid="login-btn" disabled={ !isAble }>Login</button>
         </>
      } 
     </div>
