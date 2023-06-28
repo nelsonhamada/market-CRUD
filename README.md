@@ -27,7 +27,8 @@ React Router Dom: "^6.13.0";
 Vitest:"^0.32.2".
 
 3 - Links Úteis para o desenvolvimento:
-API: "https://api.mercadolibre.com/sites/MLB/".
+FIGMA: https://www.figma.com/community/file/1255965419674499994
+API: "https://api.mercadolibre.com/sites/MLB/" 
 
 
 Desenvolvedor:
