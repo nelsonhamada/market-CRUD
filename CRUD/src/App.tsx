@@ -8,13 +8,12 @@ import ProductDetails from './pages/productDetails/ProductDetails';
 function App(): ReactElement {
   
   return (
-    <div className="main__page">
-    <p className="main__title">Market</p>
-      <Routes>
+    <>
+       <Routes>
         <Route path='/' element={ <Main /> } />
         <Route path='/:id' element={ <ProductDetails />} />
       </Routes>
-    </div>
+    </>
   )
 }
 

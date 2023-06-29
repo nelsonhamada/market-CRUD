@@ -6,7 +6,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({baseUrl: URL}),
   endpoints: (builder) => ({
     getComputers: builder.query({
-      query: () => 'sites/MLB/search?q=computer'
+      query: () => 'sites/MLB/search?q=computador'
     }),
     getDetails: builder.query({
       query: (id) => `items/${id}`
