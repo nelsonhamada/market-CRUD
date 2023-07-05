@@ -9,10 +9,10 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
-      {/* <ApiProvider api={ apiSlice }> */}
+    {/* <ApiProvider api={ apiSlice }> */}
     <Provider store={ store } >
         <App />
     </Provider>
-      {/* </ApiProvider> */}
+    {/* </ApiProvider> */}
   </BrowserRouter>,
 )
