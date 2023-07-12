@@ -9,18 +9,18 @@ const Login = (props: {[key: string]:string}): ReactElement => {
   const [login, setLogin] = useState<{[key: string]: string}>({});
   const [isAble, setAble] = useState<boolean>(false);
   
-  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }) => {
+  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }): void => {
     setLogin({
       ...login,
       [name]: value,
     }), handleValidate()
   }
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     !isLogged? dispatch(changeName(login)) : dispatch(logout()), setLogin({}), setAble(false);
   }
 
-  const handleValidate = () => {
+  const handleValidate = (): void => {
     const validateEmail: boolean = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(login.email);
     const validations: [string, boolean] = [login.name , validateEmail];
     const validate: boolean = validations.every((v) => v);

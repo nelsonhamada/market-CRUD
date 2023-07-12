@@ -2,12 +2,12 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderTest from './helpers/RenderTest';
 
-describe('Testando funcionalidade do formulário de login.', () => {
+describe('Formulário de login.', () => {
   it('Testa se formulário é renderizado', () => {
     renderTest('/');
 
-    screen.getByRole('textbox', {name: /nome:/i,});
-    screen.getByRole('textbox', {name: /email:/i,});
+    screen.getByPlaceholderText('Nome');
+    screen.getByPlaceholderText('Email');
     screen.getByTestId('login-btn');
    
   });
@@ -27,7 +27,9 @@ describe('Testando funcionalidade do formulário de login.', () => {
     });
 
     await waitFor(() => {
-      screen.getByRole('textbox', {name: /nome:/i,});
+      screen.getByRole('heading', {
+        name: /efetue o login para avaliar um produto\./i
+      });
     });
 
   });
