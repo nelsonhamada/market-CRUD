@@ -2,7 +2,7 @@ import { ReactElement, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
 
-const Login = (props: {[key: string]:string}): ReactElement => {
+const Login = (): ReactElement => {
 
   const dispatch = useAppDispatch();
   const { name, email, isLogged } = useAppSelector((state) => state.login);
@@ -51,7 +51,6 @@ const Login = (props: {[key: string]:string}): ReactElement => {
               data-testid="input-name"
               type="text"
               name="name"
-              value= { props.name }
               onChange={ handleChange }
               placeholder="Nome"
               className="grid justify-center mx-5 rounded-lg"
@@ -63,7 +62,7 @@ const Login = (props: {[key: string]:string}): ReactElement => {
               data-testid="input-email"
               type="text"
               name="email"
-              value={ props.email }
+              // value={ props.email }
               onChange={ handleChange }
               placeholder="Email"
               className="grid justify-center m-5 rounded-lg"
