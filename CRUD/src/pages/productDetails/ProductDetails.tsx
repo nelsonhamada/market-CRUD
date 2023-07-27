@@ -1,8 +1,9 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { useGetDetailsQuery } from "../../features/apiSlice";
 import Login from "../../components/login/Login";
 import { useParams } from "react-router-dom";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { changeReview } from "../../features/reviewSlice";
 
 
 const ProductDetails = (): ReactElement => {
@@ -14,10 +15,29 @@ const ProductDetails = (): ReactElement => {
     price: number;
   }
 
+  const dispatch = useAppDispatch();
   const { isLogged } = useAppSelector((state) => state.login);
   const { id } = useParams()
   const {data, isLoading}  = useGetDetailsQuery(id);
+  const [review, setReview] = useState<{[key: string]: string}>({})
+  const [isAble, setAble] = useState<boolean>(false);
+
+  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }): void => {
+    setReview({
+      ...review,
+      [name]: value,
+    }), handleValidate()
+  }
+
+  const handleValidate = (): void => {
+    const validating = [review.text, review.rating].every((value) => value);
+    setAble(validating);
+  }
   
+  const handleClick = ():void => {
+    dispatch(changeReview(review));
+  }
+
   return (
     <>
       <Login />
@@ -37,19 +57,60 @@ const ProductDetails = (): ReactElement => {
         {
           isLogged ? 
           <div className="bg-stone-700">
-    <p> Nota: </p>
-      <input type="radio" id="one" name="rating" value="1" />
-       <label htmlFor="one"> 1 </label>
-      <input type="radio" id="two" name="rating" value="2" />
-        <label htmlFor="two"> 2 </label>
-      <input type="radio" id="three" name="rating" value="3" />
-        <label htmlFor="three"> 3 </label>
-      <input type="radio" id="four" name="rating" value="4" />
-        <label htmlFor="four"> 4 </label>
-      <input type="radio" id="five" name="rating" value="5" />
-        <label htmlFor="five"> 5 </label>
-      <textarea placeholder="Deixe sua avaliação sobre o produto" maxLength={ 255 } rows={ 40 } />
-      <button> Enviar </button>
+<p> Nota: </p>
+            <input
+              type="radio"
+              id="one"
+              name="rating"
+              value="1"
+              checked={review.rating === "1"}
+              onChange={handleChange}
+            />
+            <label htmlFor="one"> 1 </label>
+            <input
+              type="radio"
+              id="two"
+              name="rating"
+              value="2"
+              checked={review.rating === "2"}
+              onChange={handleChange}
+            />
+            <label htmlFor="two"> 2 </label>
+            <input
+              type="radio"
+              id="three"
+              name="rating"
+              value="3"
+              checked={review.rating === "3"}
+              onChange={handleChange}
+            />
+            <label htmlFor="three"> 3 </label>
+            <input
+              type="radio"
+              id="four"
+              name="rating"
+              value="4"
+              checked={review.rating === "4"}
+              onChange={handleChange}
+            />
+            <label htmlFor="four"> 4 </label>
+            <input
+              type="radio"
+              id="five"
+              name="rating"
+              value="5"
+              checked={review.rating === "5"}
+              onChange={handleChange}
+            />
+            <label htmlFor="five"> 5 </label>
+            <textarea
+              placeholder="Deixe sua avaliação sobre o produto"
+              name="text"
+              onChange={handleChange}
+              maxLength={255}
+              rows={4}
+            />
+            <button disabled={ !isAble } onClick={ handleClick }> Enviar </button>
     </div> :
     <p></p>
   } 
