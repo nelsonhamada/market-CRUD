@@ -1,16 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface ReviewState {
-  text: string,
-  rating: string,
-  user: string,
-  isReviewed: boolean,
-}
+import { ReviewState } from "./interfaces/Interfaces";
 
 const initialState: ReviewState = {
   text:'',
   rating: '',
   user: '',
+  idReview: '',
   isReviewed: false,
 };
 
@@ -22,6 +17,7 @@ const reviewSlice = createSlice({
       state.text = action.payload.text;
       state.rating = action.payload.rating;
       state.user = action.payload.user;
+      state.idReview = action.payload.idReview;
       state.isReviewed = true;
     },
     deleteReview(state){

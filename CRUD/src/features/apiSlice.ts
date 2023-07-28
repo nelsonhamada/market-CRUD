@@ -1,18 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Data } from './interfaces/Interfaces';
 
 const URL = 'https://api.mercadolibre.com/';
-
-interface Results {
-  id: string;
-  title: string;
-  thumbnail: string;
-  price: number;
-  slice: (index: number, limit: number) => [];
-}
-
-interface Data {
-  results: Results[];
-}
 
 export const apiSlice = createApi({
   reducerPath: 'productsApi',
@@ -21,7 +10,7 @@ export const apiSlice = createApi({
     getComputers: builder.query<Data, void>({
       query: () => 'sites/MLB/search?q=computador'
     }),
-    getDetails: builder.query<Data, string>({
+    getDetails: builder.query({
       query: (id) => `items/${id}`
     })
   })

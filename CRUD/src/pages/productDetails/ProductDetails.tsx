@@ -1,34 +1,31 @@
 import { ReactElement, useState } from "react";
 import { useGetDetailsQuery } from "../../features/apiSlice";
 import Login from "../../components/login/Login";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { changeReview, deleteReview, editReview } from "../../features/reviewSlice";
+import { Map } from "./interface/interface";
 
 
 const ProductDetails = (): ReactElement => {
-  
-  interface Result {
-    id: string;
-    url: string;
-    title: string;
-    price: number;
-  }
 
   const dispatch = useAppDispatch();
-  const { isLogged } = useAppSelector((state) => state.login);
-  const { text, rating, isReviewed } = useAppSelector((state) => state.review);
+  const location = useLocation();
   const { id } = useParams()
-  const { name, email } = useAppSelector((state) => state.login);
+  const { pathname } = location;
   const { data, isLoading }  = useGetDetailsQuery(id);
+  const { isLogged, email } = useAppSelector((state) => state.login);
+  const { text, rating,idReview , isReviewed } = useAppSelector((state) => state.review);
   const [review, setReview] = useState<{[key: string]: string}>({})
   const [isAble, setAble] = useState<boolean>(false);
+
 
   const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }): void => {
     setReview({
       ...review,
       [name]: value,
       user: email,
+      idReview: pathname,
     }), handleValidate()
   }
 
@@ -50,7 +47,8 @@ const ProductDetails = (): ReactElement => {
     dispatch(editReview())    
   }
 
-  const verifyUser = review.user === email;
+  const verifyID: boolean =  idReview === pathname;
+   
 
   return (
     <>
@@ -60,18 +58,18 @@ const ProductDetails = (): ReactElement => {
     { isLoading? <p>Carregando...</p> :
           <div className="productDetails__card">
             <div className="productDetails__pictures">           
-            {data.pictures.slice(0,1).map((picture: Result)=> 
+            {data?.pictures?.slice(0,1).map((picture: Map)=> 
               <img src={picture.url} alt={picture.id} />
               )}
               </div>
-          <h3>{`R$${data.price}`}</h3>
-          <p>{data.title}</p>
+          <h3>{`R$${data?.price}`}</h3>
+          <p>{data?.title}</p>
         </div>
-    } <h3>Avaliações:</h3>
-        {
-          isLogged && !isReviewed ? 
+    } 
+      <h3>Avaliações:</h3>
+        { isLogged && !isReviewed ? 
           <div className="bg-stone-700">
-<p> Nota: </p>
+            <p> Nota: </p>
             <input
               type="radio"
               id="one"
@@ -126,25 +124,24 @@ const ProductDetails = (): ReactElement => {
               rows={4}
             />
             <button disabled={ !isAble } onClick={ handleClick }> Enviar </button>
-    </div> :
-    isLogged && isReviewed && verifyUser ?
-    <div>
-      <h1> {`Nota: ${rating}/5`}</h1>
-      <h2>Avaliação:</h2>
-      <p> {text} </p>
-      <p>{`${review.user}`}</p>
-      <button onClick={ handleEdit }>Editar</button>
-      <button onClick={ handleDelete }>Excluir</button>
-    </div> : isReviewed?
-    <div>
-      <h1> {`Nota: ${rating}/5`}</h1>
-      <h2>Avaliação:</h2>
-      <p> {text} </p>
-      <p>{`${review.user}`}</p>
-    </div> :
-    <h1> Esse produto não tem avaliações! </h1>
-  } 
-    </div>
+          </div> :
+          isLogged && isReviewed && verifyID? // verificar o porque de mesmo com verifyID dando false a avaliação é renderizada
+          <div>
+            <h1> {`Nota: ${rating}/5`}</h1>
+            <h2>Avaliação:</h2>
+            <p> {text} </p>
+            <p>{`${email}`}</p>
+            <button onClick={ handleEdit }>Editar</button>
+            <button onClick={ handleDelete }>Excluir</button>
+          </div> : isReviewed && verifyID?
+          <div>
+            <h1> {`Nota: ${rating}/5`}</h1>
+            <h2>Avaliação:</h2>
+            <p> {text} </p>
+          </div> :
+          <h1> Esse produto não tem avaliações! </h1>
+        } 
+      </div>
     </>
   )
 }

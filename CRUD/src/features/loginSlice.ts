@@ -1,11 +1,6 @@
 // DUCKS pattern
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface LoginState {
-  name: string;
-  email: string;
-  isLogged: boolean;
-}
+import { LoginState } from './interfaces/Interfaces';
 
 const initialState: LoginState = {
   name: '',
