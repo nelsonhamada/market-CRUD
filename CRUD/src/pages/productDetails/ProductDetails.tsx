@@ -53,22 +53,25 @@ const ProductDetails = (): ReactElement => {
   return (
     <>
       <Login />
-      <div className="productDetails__main">
+      <main className="productDetails__main">
 
-    { isLoading? <p>Carregando...</p> :
-          <div className="productDetails__card">
-            <div className="productDetails__pictures">           
-            {data?.pictures?.slice(0,1).map((picture: Map)=> 
-              <img src={picture.url} alt={picture.id} />
-              )}
-              </div>
-          <h3>{`R$${data?.price}`}</h3>
-          <p>{data?.title}</p>
+    { 
+      isLoading? <p>Carregando...</p> :
+        <div className="productDetails__card">
+          <picture className="productDetails__pictures">           
+            {
+              data?.pictures?.slice(0,1).map((picture: Map)=> 
+              <img key= {picture.id} src={picture.url} alt={picture.title} />
+            )}
+          </picture>
+            <h3>{`R$${data?.price}`}</h3>
+            <p>{data?.title}</p>
         </div>
     } 
-      <h3>Avaliações:</h3>
+      <h2>Avaliações:</h2>
         { isLogged && !isReviewed ? 
-          <div className="bg-stone-700">
+
+          <form className="bg-stone-700">
             <p> Nota: </p>
             <input
               type="radio"
@@ -124,8 +127,8 @@ const ProductDetails = (): ReactElement => {
               rows={4}
             />
             <button disabled={ !isAble } onClick={ handleClick }> Enviar </button>
-          </div> :
-          isLogged && isReviewed && verifyID? // verificar o porque de mesmo com verifyID dando false a avaliação é renderizada
+          </form> :
+          isLogged && isReviewed && verifyID? 
           <div>
             <h1> {`Nota: ${rating}/5`}</h1>
             <h2>Avaliação:</h2>
@@ -141,7 +144,7 @@ const ProductDetails = (): ReactElement => {
           </div> :
           <h1> Esse produto não tem avaliações! </h1>
         } 
-      </div>
+      </main>
     </>
   )
 }
