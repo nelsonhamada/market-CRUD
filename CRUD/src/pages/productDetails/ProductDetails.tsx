@@ -71,7 +71,7 @@ const ProductDetails = (): ReactElement => {
       <h2>Avaliações:</h2>
         { isLogged && !isReviewed ? 
 
-          <form className="bg-stone-700">
+          <form className="bg-stone-700" data-testid="review-form">
             <p> Nota: </p>
             <input
               type="radio"
