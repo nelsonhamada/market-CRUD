@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.07% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.07% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/13</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -115,20 +115,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,21 +150,21 @@ const reviewSlice = createSlice({
   name: 'review',
   initialState,
   reducers: {
-<span class="fstat-no" title="function not covered" >    changeReview(s</span>tate, action: PayloadAction&lt;{[key:string]:string}&gt;) {
-<span class="cstat-no" title="statement not covered" >      state.text = action.payload.text;</span>
-<span class="cstat-no" title="statement not covered" >      state.rating = action.payload.rating;</span>
-<span class="cstat-no" title="statement not covered" >      state.user = action.payload.user;</span>
-<span class="cstat-no" title="statement not covered" >      state.idReview = action.payload.idReview;</span>
-<span class="cstat-no" title="statement not covered" >      state.isReviewed = true;</span>
+    changeReview(state, action: PayloadAction&lt;{[key:string]:string}&gt;) {
+      state.text = action.payload.text;
+      state.rating = action.payload.rating;
+      state.user = action.payload.user;
+      state.idReview = action.payload.idReview;
+      state.isReviewed = true;
     },
-<span class="fstat-no" title="function not covered" >    deleteReview(s</span>tate){
-<span class="cstat-no" title="statement not covered" >      state.text = '';</span>
-<span class="cstat-no" title="statement not covered" >      state.rating = '';</span>
-<span class="cstat-no" title="statement not covered" >      state.user = '';</span>
-<span class="cstat-no" title="statement not covered" >      state.isReviewed = false;</span>
+    deleteReview(state){
+      state.text = '';
+      state.rating = '';
+      state.user = '';
+      state.isReviewed = false;
     },
-<span class="fstat-no" title="function not covered" >    editReview(s</span>tate) {
-<span class="cstat-no" title="statement not covered" >      state.isReviewed = false;</span>
+    editReview(state) {
+      state.isReviewed = false;
     }
   },
 });
@@ -178,7 +178,7 @@ export default reviewSlice.reducer;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-07-28T15:04:43.838Z
+                at 2023-07-31T16:55:45.521Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
