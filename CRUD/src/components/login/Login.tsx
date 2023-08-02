@@ -1,6 +1,7 @@
 import { ReactElement, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
+import userIcon from "./img/user.png";
 
 const Login = (): ReactElement => {
 
@@ -26,17 +27,26 @@ const Login = (): ReactElement => {
     const validate: boolean = validations.every((v) => v);
     setAble(validate);
   }
+  
+  const btnAbleClass: string = "bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out";
+
+  const btnDisableClass: string = "bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 opacity-50 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out cursor-not-allowed";
+
+  let button: undefined | string;
+  isAble ? button = btnAbleClass : button = btnDisableClass;
 
   return (
-    <aside className="bg-stone-700 flex text-center h-80 rounded-xl p-5 m-10"> 
-      {isLogged ?
-        <fieldset>
-          <p>{name}</p>
-          <p>{email}</p>
+    <div className="flex place-content-center text-center bg-stone-700  h-80 rounded-xl p-5 m-10 h-64"> 
+      { isLogged ?
+        <fieldset className="font-bold m-5 
+        w-64">
+          <img className="w-14 mx-auto" src={ userIcon } alt="Ícone de usuário."/>
+          <p className="mt-5 m-1">{name}</p>
+          <p className="m-1">{email}</p>
           <button
             onClick={ handleClick }
             data-testid="logout-btn"
-            className="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-700 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            className="bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out mt-4"
           >
             Logout
           </button> 
@@ -62,7 +72,6 @@ const Login = (): ReactElement => {
               data-testid="input-email"
               type="text"
               name="email"
-              // value={ props.email }
               onChange={ handleChange }
               placeholder="Email"
               className="m-5 rounded-lg"
@@ -73,13 +82,13 @@ const Login = (): ReactElement => {
             onClick={ handleClick }
             data-testid="login-btn"
             disabled={ !isAble }
-            className="bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            className={ button }
           >
             Login
           </button>
         </form>
      } 
-    </aside>
+    </div>
   )
 }
 

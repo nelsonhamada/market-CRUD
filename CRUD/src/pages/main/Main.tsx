@@ -11,7 +11,7 @@ const Main = (): ReactElement => {
   return (
     <>
       <Header />
-      <div className="bg-stone-800 flex min-h-screen text-indigo-400 bg-cover bg-fixed">
+      <div className="bg-stone-800 flex min-h-screen text-indigo-400 bg-cover bg-fixed flex">
         <main className="bg-stone-700 grid grid-cols-3 place-items-center grid m-10 p-10 w-4/5 rounded-xl">
       { 
         isLoading ? 
@@ -27,7 +27,7 @@ const Main = (): ReactElement => {
                   </span>
                   <section className="grid">
                     <h3 className="text-2xl font-black m-3 text-white justify-self-end">{`R$${result.price.toFixed(2)}`}</h3>
-                    <p className="grid text-clip overflow-hidden m-5 text-white">{result.title}</p>
+                    <p className="text-clip overflow-hidden m-5 text-white">{result.title}</p>
                   </section>
                 </Link>
               </div>

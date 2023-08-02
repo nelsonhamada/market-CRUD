@@ -52,25 +52,25 @@ const ProductDetails = (): ReactElement => {
    
 
   return (
-    <>
+    <div className="">
       <Header />
-      <Login />
-      <main className="productDetails__main">
+      <div className="bg-stone-800 flex min-h-screen text-indigo-400 bg-cover bg-fixed">
+      <main className="bg-stone-700 m-10 p-10 w-4/5 place-items-center rounded-xl">
 
     { 
-      isLoading? <p>Carregando...</p> :
-        <div className="productDetails__card">
+      isLoading? <p className="text-4xl font-black m-3 bg-stone-700 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-purple-500">Carregando...</p> :
+      <div className="">
           <picture className="productDetails__pictures">           
             {
               data?.pictures?.slice(0,1).map((picture: Map)=> 
               <img key= {picture.id} src={picture.url} alt={picture.title} />
-            )}
+              )}
           </picture>
-            <h3>{`R$${data?.price}`}</h3>
-            <p>{data?.title}</p>
+            <h3 className="text-2xl font-black m-3 text-white justify-self-end">{`R$${data?.price}`}</h3>
+            <p className="grid text-clip overflow-hidden m-5 text-white">{data?.title}</p>
+            <h2>Avaliações:</h2>
         </div>
-    } 
-      <h2>Avaliações:</h2>
+    }
         { isLogged && !isReviewed ? 
 
           <form className="bg-stone-700" data-testid="review-form">
@@ -138,16 +138,20 @@ const ProductDetails = (): ReactElement => {
             <p>{`${email}`}</p>
             <button onClick={ handleEdit }>Editar</button>
             <button onClick={ handleDelete }>Excluir</button>
-          </div> : isReviewed && verifyID?
+          </div> 
+          : 
+          isReviewed && verifyID?
           <div>
             <h1> {`Nota: ${rating}/5`}</h1>
             <h2>Avaliação:</h2>
             <p> {text} </p>
           </div> :
           <h1> Esse produto não tem avaliações! </h1>
-        } 
-      </main>
-    </>
+        }
+        </main>
+        <Login />
+      </div>
+    </div>
   )
 }
 
