@@ -13,6 +13,7 @@ Desenvolver um projeto, desde o início, escolhendo e utilizando tecnologias atu
 ##### Próximos objetivos: #####
 Refatorar Código para melhor desempenho e segurança;
 Implementar barra de pesquisa para selecionar outros tipos de produtos;
+Aprimorar estilização;
 Implementar back-end para validação de usuário e armazenar dados para que seja possível mais de uma pesoa fazer uma avalação e que ela permaneça na página até que o criador tenha removido.
 
 ##### 1 - Links Úteis para o desenvolvimento: #####
