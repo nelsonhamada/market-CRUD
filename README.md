@@ -1,5 +1,9 @@
 # market-CRUD
 
+** PROJETO FINALIZADO V1.0.0 **
+  Projeto finalizado.
+  Faça comentários, críticas e sugestões. Eu gostaria de aprimorar a aplicação e melhorar meu código, conto com sua ajuda!
+
 ##### O que é: #####
 Aplicação utilizando Redux Toolkit em Typescript que  busca produtos em API do mercado livre e te proporciona criar, editar ou excluir avaliações dos produtos caso você esteja logado.
 
@@ -7,10 +11,8 @@ Aplicação utilizando Redux Toolkit em Typescript que  busca produtos em API do
 Aplicar conhecimentos adquiridos no módulo de Frontend da Trybe de forma independente;
 Desenvolver um projeto, desde o início, escolhendo e utilizando tecnologias atuais do mercado como Typescript e Redux Toolkit para expor em portifólio.
 
-** PROJETO FINALIZADO V1.0.0 **
-  Projeto finalizado.
-
 ##### Próximos objetivos: #####
+Implementar estilização mobile;
 Refatorar Código para melhor desempenho e segurança;
 Implementar barra de pesquisa para selecionar outros tipos de produtos;
 Aprimorar estilização;
