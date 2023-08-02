@@ -7,9 +7,13 @@ Aplicação utilizando Redux Toolkit em Typescript que  busca produtos em API do
 Aplicar conhecimentos adquiridos no módulo de Frontend da Trybe de forma independente;
 Desenvolver um projeto, desde o início, escolhendo e utilizando tecnologias atuais do mercado como Typescript e Redux Toolkit para expor em portifólio.
 
-** PROJETO EM DESENVOLVIMENTO **
-  Fase: Implantação de Header;
-    -Criação, edição e exclusão de avaiações dos produtos quando logado implementada. Implementando Header com busca para outros tipos de produtos para seguir para estilização.
+** PROJETO FINALIZADO V1.0.0 **
+  Projeto finalizado.
+
+##### Próximos objetivos: #####
+Refatorar Código para melhor desempenho e segurança;
+Implementar barra de pesquisa para selecionar outros tipos de produtos;
+Implementar back-end para validação de usuário e armazenar dados para que seja possível mais de uma pesoa fazer uma avalação e que ela permaneça na página até que o criador tenha removido.
 
 ##### 1 - Links Úteis para o desenvolvimento: #####
 FIGMA: https://www.figma.com/community/file/1255966418203656093
