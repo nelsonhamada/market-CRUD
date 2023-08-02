@@ -28,7 +28,7 @@ const Login = (): ReactElement => {
   }
 
   return (
-    <aside className="bg-stone-700 flex-col text-center h-80 rounded-xl p-5 m-10"> 
+    <aside className="bg-stone-700 flex text-center h-80 rounded-xl p-5 m-10"> 
       {isLogged ?
         <fieldset>
           <p>{name}</p>
@@ -36,14 +36,14 @@ const Login = (): ReactElement => {
           <button
             onClick={ handleClick }
             data-testid="logout-btn"
-            className="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            className="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-700 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
           >
             Logout
           </button> 
         </fieldset> 
       :
         <form>
-          <h3 className="main__login__title grid justify-center m-5">
+          <h3 className="font-bold m-5">
             Efetue o Login para avaliar um produto.
           </h3>
           <fieldset>
@@ -53,7 +53,7 @@ const Login = (): ReactElement => {
               name="name"
               onChange={ handleChange }
               placeholder="Nome"
-              className="grid justify-center mx-5 rounded-lg"
+              className=" mx-5 rounded-lg"
             />
             <br />
           </fieldset>
@@ -65,7 +65,7 @@ const Login = (): ReactElement => {
               // value={ props.email }
               onChange={ handleChange }
               placeholder="Email"
-              className="grid justify-center m-5 rounded-lg"
+              className="m-5 rounded-lg"
             />
             <br />
           </fieldset>
@@ -73,7 +73,7 @@ const Login = (): ReactElement => {
             onClick={ handleClick }
             data-testid="login-btn"
             disabled={ !isAble }
-            className="bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+            className="bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
           >
             Login
           </button>

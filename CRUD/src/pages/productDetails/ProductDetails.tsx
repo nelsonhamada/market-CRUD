@@ -5,6 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { changeReview, deleteReview, editReview } from "../../features/reviewSlice";
 import { Map } from "./interface/interface";
+import Header from "../../components/header/Header";
 
 
 const ProductDetails = (): ReactElement => {
@@ -52,6 +53,7 @@ const ProductDetails = (): ReactElement => {
 
   return (
     <>
+      <Header />
       <Login />
       <main className="productDetails__main">
 
