@@ -9,7 +9,7 @@ const Header= (): ReactElement => {
       <Link to={`/`}>
       <button className={ btnHome }>Home</button>
       </Link>
-      <h1 className={ h1Name }>Market Crude</h1>
+      <h1 className={ h1Name }>Market Crud</h1>
       <img className={ imgLogo }src={logo} alt="logotipo-de-computador" />
     </div>
   ) 
