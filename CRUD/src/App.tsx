@@ -1,6 +1,5 @@
 import { ReactElement } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css'
 import Main from './pages/main/Main';
 import ProductDetails from './pages/productDetails/ProductDetails';
 

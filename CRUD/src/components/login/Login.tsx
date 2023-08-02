@@ -1,68 +1,89 @@
 import { ReactElement, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
-import './Login.css';
+import userIcon from "./img/user.png";
+import { btnAbleClass, btnDisableClass, divFather, emailUser, fieldsetUser, h3Form, imgUser, inputEmail, inputName, logoutBtn, nameUser } from "./css/className";
 
-const Login = (props: {[key: string]:string}): ReactElement => {
+const Login = (): ReactElement => {
 
   const dispatch = useAppDispatch();
   const { name, email, isLogged } = useAppSelector((state) => state.login);
   const [login, setLogin] = useState<{[key: string]: string}>({});
   const [isAble, setAble] = useState<boolean>(false);
   
-  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }) => {
+  const handleChange = ({ target: { name, value } }: { target: { name: string, value: string } }): void => {
     setLogin({
       ...login,
       [name]: value,
     }), handleValidate()
   }
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     !isLogged? dispatch(changeName(login)) : dispatch(logout()), setLogin({}), setAble(false);
   }
 
-  const handleValidate = () => {
+  const handleValidate = (): void => {
     const validateEmail: boolean = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(login.email);
     const validations: [string, boolean] = [login.name , validateEmail];
     const validate: boolean = validations.every((v) => v);
     setAble(validate);
   }
+  
+
+  let button: undefined | string;
+  isAble ? button = btnAbleClass : button = btnDisableClass;
 
   return (
-    <div className="main__login"> 
-      {isLogged ?
-        <>
-          <p>{name}</p>
-          <p>{email}</p>
-          <button onClick={ handleClick } data-testid="logout-btn">Logout</button> 
-        </> 
+    <div className={ divFather }> 
+      { isLogged ?
+        <fieldset className={ fieldsetUser }>
+          <img className={ imgUser } src={ userIcon } alt="Ícone de usuário."/>
+          <p className={ nameUser }>{name}</p>
+          <p className={ emailUser }>{email}</p>
+          <button
+            onClick={ handleClick }
+            data-testid="logout-btn"
+            className={ logoutBtn }
+          >
+            Logout
+          </button> 
+        </fieldset> 
       :
-        <>
-          <h3 className="main__login__title">
+        <form>
+          <h3 className={ h3Form }>
             Efetue o Login para avaliar um produto.
           </h3>
-          <label>
-              Nome:
+          <fieldset>
             <input
-            data-testid="input-name"
-            type="text"
-            name="name"
-            value= { props.name }
-            onChange={ handleChange }
+              data-testid="input-name"
+              type="text"
+              name="name"
+              onChange={ handleChange }
+              placeholder="Nome"
+              className={ inputName }
             />
-          </label>
-          <label>
-              Email:
+            <br />
+          </fieldset>
+          <fieldset>
             <input 
-            data-testid="input-email"
-            type="text"
-            name="email"
-            value={ props.email }
-            onChange={ handleChange }
+              data-testid="input-email"
+              type="text"
+              name="email"
+              onChange={ handleChange }
+              placeholder="Email"
+              className={ inputEmail }
             />
-          </label>
-          <button onClick={ handleClick } data-testid="login-btn" disabled={ !isAble }>Login</button>
-        </>
+            <br />
+          </fieldset>
+          <button
+            onClick={ handleClick }
+            data-testid="login-btn"
+            disabled={ !isAble }
+            className={ button }
+          >
+            Login
+          </button>
+        </form>
      } 
     </div>
   )
