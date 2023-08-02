@@ -55,26 +55,25 @@ const ProductDetails = (): ReactElement => {
     <div className="">
       <Header />
       <div className="bg-stone-800 flex min-h-screen text-indigo-400 bg-cover bg-fixed">
-      <main className="bg-stone-700 m-10 p-10 w-4/5 place-items-center rounded-xl">
+      <main className="bg-stone-700 flex-col m-10 p-10 w-4/5 rounded-xl">
 
     { 
-      isLoading? <p className="text-4xl font-black m-3 bg-stone-700 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-purple-500">Carregando...</p> :
+      isLoading? <p className="text-4xl font-black m-3 bg-stone-700 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-purple-500 self-center mx-auto">Carregando...</p> :
       <div className="">
-          <picture className="productDetails__pictures">           
+                
             {
               data?.pictures?.slice(0,1).map((picture: Map)=> 
-              <img key= {picture.id} src={picture.url} alt={picture.title} />
+              <img className="opacity-80 rounded-xl" key= {picture.id} src={picture.url} alt={picture.title} />
               )}
-          </picture>
-            <h3 className="text-2xl font-black m-3 text-white justify-self-end">{`R$${data?.price}`}</h3>
-            <p className="grid text-clip overflow-hidden m-5 text-white">{data?.title}</p>
-            <h2>Avaliações:</h2>
+          
+            <h3 className="text-2xl font-black m-2 mt-6  justify-self-end bg-stone-700 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-pink-500 to-purple-500">{`R$${data?.price}`}</h3>
+            <p className="grid text-clip overflow-hidden m-2 text-white">{data?.title}</p>
+            <h2 className="text-2xl  mt-5 mb-3 bg-stone-700 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-blue-500 to-purple-500">Avaliações:</h2>
         </div>
-    }
+    }   
         { isLogged && !isReviewed ? 
-
-          <form className="bg-stone-700" data-testid="review-form">
-            <p> Nota: </p>
+          <form className="w-64 flex-col" data-testid="review-form">
+            <p className="text-xl mb-3"> Nota: </p>
             <input
               type="radio"
               id="one"
@@ -82,8 +81,9 @@ const ProductDetails = (): ReactElement => {
               value="1"
               checked={review.rating === "1"}
               onChange={handleChange}
+              className="mb-3"
             />
-            <label htmlFor="one"> 1 </label>
+            <label className="m-1 mr-3" htmlFor="one"> 1 </label>
             <input
               type="radio"
               id="two"
@@ -92,7 +92,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "2"}
               onChange={handleChange}
             />
-            <label htmlFor="two"> 2 </label>
+            <label className="m-1 mr-3" htmlFor="two"> 2 </label>
             <input
               type="radio"
               id="three"
@@ -101,7 +101,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "3"}
               onChange={handleChange}
             />
-            <label htmlFor="three"> 3 </label>
+            <label className="m-1 mr-3" htmlFor="three"> 3 </label>
             <input
               type="radio"
               id="four"
@@ -110,7 +110,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "4"}
               onChange={handleChange}
             />
-            <label htmlFor="four"> 4 </label>
+            <label className="m-1 mr-3" htmlFor="four"> 4 </label>
             <input
               type="radio"
               id="five"
@@ -119,34 +119,34 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "5"}
               onChange={handleChange}
             />
-            <label htmlFor="five"> 5 </label>
+            <label  className="m-1 mr-3" htmlFor="five"> 5 </label>
             <textarea
               placeholder="Deixe sua avaliação sobre o produto"
               name="text"
               value={ review.text }
               onChange={handleChange}
               maxLength={255}
-              rows={4}
+              rows={10}
+              className="w-64 bg-stone-600"
             />
-            <button disabled={ !isAble } onClick={ handleClick }> Enviar </button>
-          </form> :
+            <button disabled={ !isAble } onClick={ handleClick } className="bg-gradient-to-r from-purple-800 to-pink-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out mt-4 justify-self-end"> Enviar </button>
+          </form>
+          :
           isLogged && isReviewed && verifyID? 
           <div>
-            <h1> {`Nota: ${rating}/5`}</h1>
-            <h2>Avaliação:</h2>
-            <p> {text} </p>
-            <p>{`${email}`}</p>
-            <button onClick={ handleEdit }>Editar</button>
-            <button onClick={ handleDelete }>Excluir</button>
+            <h1 className="text-2xl m-2 font-black"> {`Nota: ${rating}/5`}</h1>
+            <p className="text-xl m-2 text-white"> {text} </p>
+            <p className="text-lg font-black m-2">{`${email}`}</p>
+            <button onClick={ handleEdit } className="bg-gradient-to-r from-blue-800 to-purple-700 hover:from-pink-700 hover:to-blue-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out m-2 mt-4">Editar</button>
+            <button onClick={ handleDelete } className="bg-gradient-to-r from-red-800 to-pink-700 hover:from-pink-700 hover:to-red-800 text-white font-bold py-2 px-4 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out mt-4">Excluir</button>
           </div> 
           : 
           isReviewed && verifyID?
           <div>
-            <h1> {`Nota: ${rating}/5`}</h1>
-            <h2>Avaliação:</h2>
-            <p> {text} </p>
+            <h1 className="text-2xl m-2 font-black"> {`Nota: ${rating}/5`}</h1>
+            <p className="text-xl m-2 text-white"> {text} </p>
           </div> :
-          <h1> Esse produto não tem avaliações! </h1>
+          <p> </p>
         }
         </main>
         <Login />
