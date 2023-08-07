@@ -20,7 +20,8 @@ Implementar back-end para validação de usuário e armazenar dados para que sej
 
 ##### 1 - Links Úteis para o desenvolvimento: #####
 FIGMA: https://www.figma.com/community/file/1255966418203656093
-API: "https://api.mercadolibre.com/sites/MLB/" 
+API: https://api.mercadolibre.com/sites/MLB/ 
+Deploy: https://market-crud.vercel.app/
 
 ##### 2 - Mensagem: ##### 
 Sou desenvolvedor em início de carreira e adoraria entrar em discussões sobre as melhores práticas do mercado e escolhas sobre as tecnologias que nos proporcionam aplicações mais performáticas e de fácil manutenção. Gostaria de receber reviews sobre como melhorar meu código, sintam-se à vontade para abrirem PR's e me chamem no linkedin para a gente debater sobre esses assuntos.
