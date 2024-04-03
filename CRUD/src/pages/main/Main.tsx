@@ -3,7 +3,8 @@ import { useGetComputersQuery } from "../../features/apiSlice";
 import Login from "../../components/login/Login";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
-import { divFather, main, pLoading, divData, spanData, imgData, sectionData, h3Data, pData } from "./css/classNames";
+import { main, pLoading, divData, spanData, imgData, sectionData, h3Data, pData } from "./css/classNames";
+import styles from "./css/Main.module.css";
 
 const Main = (): ReactElement => {
   
@@ -12,8 +13,8 @@ const Main = (): ReactElement => {
   return (
     <>
       <Header />
-      <div className={ divFather }>
-        <main className={ main }>
+      <div className={ styles.mainBody }>
+        <main className={ styles.main }>
       { 
         isLoading ?
         <p className={ pLoading }>
@@ -37,7 +38,7 @@ const Main = (): ReactElement => {
         }
         </main>
         <Login />
-      </div>
+        </div>
     </>
   )
 }

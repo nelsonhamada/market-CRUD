@@ -1,0 +1,14 @@
+.mainBody{
+  display: flex;
+}
+
+.main{
+  background-color: rgb(81, 81, 81);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  margin: 2.5rem;
+  padding: 2.5rem;
+  width:80%;
+  border-radius: 1rem;
+}
