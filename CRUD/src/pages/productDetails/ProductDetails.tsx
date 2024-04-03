@@ -7,7 +7,7 @@ import { changeReview, deleteReview, editReview } from "../../features/reviewSli
 import { Map } from "./interface/interface";
 import Header from "../../components/header/Header";
 import { deleteBtn, divFather, editBtn, firstRadio, form, h1Review, h2Data, h3Data, imgData, labelRadio, main, pData, pEmailReview, pForm, pLoading, pTextReview, sendBtnAble, sendBtnDisabled, textArea } from "./css/classNames";
-
+import styles from "./css/ProductDetails.module.css";
 
 const ProductDetails = (): ReactElement => {
 
@@ -58,7 +58,7 @@ const ProductDetails = (): ReactElement => {
   return (
     <>
       <Header />
-      <div className={ divFather }>
+      <div className={ styles.main }>
       <main className={ main }>
 
     { 
