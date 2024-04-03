@@ -1,14 +1,29 @@
-.mainBody{
-  display: flex;
+@media screen and (min-width: 800px) {
+  .mainBody{
+    display: flex;
+  }
 }
+
 
 .main{
   background-color: rgb(81, 81, 81);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   place-items: center;
   margin: 2.5rem;
   padding: 2.5rem;
   width:80%;
   border-radius: 1rem;
 }
+
+@media screen and (min-width: 700px) {
+  .main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1055px) {
+  .main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
