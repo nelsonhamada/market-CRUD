@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
 html, body {
   height: 100%;
@@ -6,4 +7,9 @@ html, body {
  }
 body {
   background-color: rgb(12, 12, 12);
+  font-family: "Figtree", sans-serif;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
 }

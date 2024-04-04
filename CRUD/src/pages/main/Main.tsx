@@ -24,12 +24,12 @@ const Main = (): ReactElement => {
           data?.results.slice(0,10).map((result) => (
             <div className={ styles.divData } key={result.id}>
                 <Link to={`/${result.id}`}>
-                  <span className={ spanData }>
-                    <img className={ imgData } src={result.thumbnail} alt={result.title} />
+                  <span className={ styles.spanData }>
+                    <img className={ styles.imgData } src={result.thumbnail} alt={result.title} />
                   </span>
-                  <section className={ sectionData }>
-                    <h3 className={ h3Data }>{`R$${result.price.toFixed(2)}`}</h3>
-                    <p className={ pData }>{result.title.slice(0,30) + "..."}</p>
+                  <section className={ styles.sectionData }>
+                    <h3 className={ styles.h3Data }>{`R$${result.price.toFixed(2)}`}</h3>
+                    <p className={ styles.pData }>{result.title.slice(0,30) + "..."}</p>
                   </section>
                 </Link>
               </div>
