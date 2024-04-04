@@ -1,4 +1,179 @@
-.main {
+.mainBody {
   background-color: rgb(139, 136, 136);
   color:aliceblue;
+  width: max-content;
 }
+
+.main {
+  background-color: rgb(81, 81, 81);
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem; 
+  padding: 2.5rem; 
+  width: 80%;
+  border-radius: 1.5rem;
+ }
+
+ .pLoading {
+  font-size: 2.25rem; 
+  font-weight: 700; 
+  margin: 0.75rem; 
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #ec4899, #3b82f6, #8b5cf6);
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+ }
+ 
+ 
+ .imgData {
+  opacity: 0.8; 
+  border-radius: 1.5rem;
+  width: max-content;
+ }
+
+
+ @media screen and (min-width: 623px) {
+  .imgData {
+    width: fit-content;
+  }
+ }
+ 
+ .h3Data {
+  font-size: 1.5rem;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3b82f6, #ec4899, #8b5cf6);
+ }
+
+ .pData {
+  overflow: hidden;
+ }
+ 
+ .h2Data {
+  font-size: 1.5rem; 
+  margin-top: 1.25rem; 
+  margin-bottom: 0.75rem;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #ec4899, #3b82f6, #8b5cf6);
+ }
+ 
+
+ .form {
+  width: auto;
+ }
+ 
+ .pForm {
+  font-size: 1.25rem; 
+  margin-bottom: 0.75rem;
+ }
+ 
+ 
+ .firstRadio {
+  margin-bottom: 0.75rem;
+ }
+ 
+ 
+ .labelRadio {
+  margin: 0.25rem;
+  margin-right: 0.75rem;
+ }
+ 
+ .reviewArea {
+  display: flex;
+  flex-direction: column;
+ }
+
+ .textArea {
+  width: auto;
+  background-color: #252526; 
+ }
+ 
+ .sendBtnAble {
+  background: linear-gradient(to right, #6b46c1, #f64f59);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+  transform: scale(1);
+  margin-top: 1rem; /* 4 tailwind units */
+  align-self: end;
+ }
+ .sendBtnAble:hover {
+  background: linear-gradient(to right, #f64f59, #3b82f6);
+  transform: scale(1.05);
+ }
+ 
+ /* sendBtnDisabled */
+ .sendBtnDisabled {
+  background: linear-gradient(to right, #6b46c1, #f64f59);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  opacity: 0.5;
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+  transform: scale(1);
+  cursor: not-allowed;
+ }
+ .sendBtnDisabled:hover {
+  background: linear-gradient(to right, #f64f59, #3b82f6);
+  transform: scale(1.05);
+ }
+ 
+ /* h1Review */
+ .h1Review {
+  font-size: 1.5rem; /* 2xl */
+  margin: 0.5rem; /* 2 tailwind units */
+  font-weight: 700; /* font-black */
+ }
+ 
+ /* pTextReview */
+ .pTextReview {
+  font-size: 1.25rem; /* xl */
+  margin: 0.5rem; /* 2 tailwind units */
+  color: #ffffff; /* text-white */
+ }
+ 
+ /* pEmailReview */
+ .pEmailReview {
+  font-size: 1rem; /* lg */
+  font-weight: 700; /* font-black */
+  margin: 0.5rem; /* 2 tailwind units */
+ }
+ 
+ /* editBtn */
+ .editBtn {
+  background: linear-gradient(to right, #6b46c1, #f64f59);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+  transform: scale(1);
+  margin: 0.5rem; /* 2 tailwind units */
+  margin-top: 1rem; /* 4 tailwind units */
+ }
+ .editBtn:hover {
+  background: linear-gradient(to right, #f64f59, #3b82f6);
+  transform: scale(1.05);
+ }
+ 
+ /* deleteBtn */
+ .deleteBtn {
+  background: linear-gradient(to right, #f56565, #f64f59);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+  transform: scale(1);
+  margin-top: 1rem; /* 4 tailwind units */
+ }
+ .deleteBtn:hover {
+  background: linear-gradient(to right, #f64f59, #f56565);
+  transform: scale(1.05);
+ }

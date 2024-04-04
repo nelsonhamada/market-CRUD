@@ -25,11 +25,32 @@
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #48BB78, #ef2fe3, #b906f5);
-
 }
+
+@media screen and (max-width: 490px) {
+  .h1Name {
+    font-size: 1.5rem;
+  }
+}
+
 
 .imgLogo {
   width: 4rem;
   margin: 0.75rem;
   border-radius: 0.75rem;
+}
+
+@media screen and (max-width: 343px) {
+  .h1Name {
+    font-size: 0.85rem;
+  }
+  
+  .imgLogo {
+    width: 2rem;
+    margin: 10px;
+  }
+  
+  .btnHome {
+    font-size: 0.35rem;
+  }
 }

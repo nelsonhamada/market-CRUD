@@ -50,7 +50,7 @@ const ProductDetails = (): ReactElement => {
   }
   
   let buttonClass: undefined | string;
-  isAble? buttonClass = sendBtnAble : buttonClass = sendBtnDisabled;
+  isAble? buttonClass = styles.sendBtnAble : buttonClass = styles.sendBtnDisabled;
 
   const verifyID: boolean =  idReview === pathname;
    
@@ -58,26 +58,26 @@ const ProductDetails = (): ReactElement => {
   return (
     <>
       <Header />
-      <div className={ styles.main }>
-      <main className={ main }>
+      <div className={ styles.mainBody }>
+      <main className={ styles.main }>
 
     { 
-      isLoading? <p className={ pLoading }>Carregando...</p> :
-      <div>
+      isLoading? <p className={ styles.pLoading }>Carregando...</p> :
+      <div className={ styles.details}>
                 
             {
               data?.pictures?.slice(0,1).map((picture: Map)=> 
-              <img className={ imgData } key= {picture.id} src={picture.url} alt={picture.title} />
+              <img className={ styles.imgData } key= {picture.id} src={picture.url} alt={picture.title} />
               )}
           
-            <h3 className={ h3Data }>{`R$${data?.price}`}</h3>
-            <p className={ pData }>{data?.title}</p>
-            <h2 className={ h2Data }>Avaliações:</h2>
+            <h3 className={ styles.h3Data }>{`R$${data?.price}`}</h3>
+            <p className={ styles.pData }>{data?.title}</p>
+            <h2 className={ styles.h2Data }>Avaliações:</h2>
         </div>
     }   
         { isLogged && !isReviewed ? 
-          <form className={ form } data-testid="review-form">
-            <p className={ pForm }> Nota: </p>
+          <form className={ styles.form } data-testid="review-form">
+            <p className={ styles.pForm }> Nota: </p>
             <input
               type="radio"
               id="one"
@@ -85,9 +85,9 @@ const ProductDetails = (): ReactElement => {
               value="1"
               checked={review.rating === "1"}
               onChange={handleChange}
-              className={ firstRadio }
+              className={ styles.firstRadio }
             />
-            <label className={ labelRadio } htmlFor="one"> 1 </label>
+            <label className={ styles.labelRadio } htmlFor="one"> 1 </label>
             <input
               type="radio"
               id="two"
@@ -96,7 +96,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "2"}
               onChange={handleChange}
             />
-            <label className={ labelRadio }  htmlFor="two"> 2 </label>
+            <label className={ styles.labelRadio }  htmlFor="two"> 2 </label>
             <input
               type="radio"
               id="three"
@@ -105,7 +105,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "3"}
               onChange={handleChange}
             />
-            <label className={ labelRadio }  htmlFor="three"> 3 </label>
+            <label className={ styles.labelRadio }  htmlFor="three"> 3 </label>
             <input
               type="radio"
               id="four"
@@ -114,7 +114,7 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "4"}
               onChange={handleChange}
             />
-            <label className={ labelRadio }  htmlFor="four"> 4 </label>
+            <label className={ styles.labelRadio }  htmlFor="four"> 4 </label>
             <input
               type="radio"
               id="five"
@@ -123,7 +123,8 @@ const ProductDetails = (): ReactElement => {
               checked={review.rating === "5"}
               onChange={handleChange}
             />
-            <label  className={ labelRadio }  htmlFor="five"> 5 </label>
+            <label  className={ styles.labelRadio }  htmlFor="five"> 5 </label>
+            <div className={styles.reviewArea}>            
             <textarea
               placeholder="Deixe sua avaliação sobre o produto"
               name="text"
@@ -131,9 +132,10 @@ const ProductDetails = (): ReactElement => {
               onChange={handleChange}
               maxLength={255}
               rows={10}
-              className={ textArea }
+              className={ styles.textArea }
             />
             <button disabled={ !isAble } onClick={ handleClick } className={ buttonClass }> Enviar </button>
+          </div>
           </form>
           :
           isLogged && isReviewed && verifyID? 

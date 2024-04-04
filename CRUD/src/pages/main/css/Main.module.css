@@ -1,19 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
+.mainBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (min-width: 880px) {
   .mainBody{
     display: flex;
   }
 }
 
+
 .main {
   background-color: rgb(81, 81, 81);
   display: grid;
   place-items: center;
   margin: 2.5rem;
-  padding: 2.5rem;
   width:80%;
   border-radius: 1rem;
+}
+
+@media screen and (max-width: 770px) {
+  .main {
+    margin:15px;
+    width: 97%;
+  }
 }
 
 @media screen and (min-width: 600px) {
