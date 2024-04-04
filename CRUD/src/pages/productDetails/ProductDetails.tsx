@@ -139,6 +139,7 @@ const ProductDetails = (): ReactElement => {
           :
           isLogged && isReviewed && verifyID? 
           <div className={ styles.review}>
+
             <h1 className={ styles.h1Review }> {`Nota: ${rating}/5`}</h1>
             <p className={ styles.pTextReview }> {text} </p>
             <p className={ styles.pEmailReview }>{`${email}`}</p>
