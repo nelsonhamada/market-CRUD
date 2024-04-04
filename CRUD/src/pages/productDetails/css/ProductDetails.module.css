@@ -1,15 +1,20 @@
 .mainBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.0rem;
   background-color: rgb(139, 136, 136);
   color:aliceblue;
-  width: max-content;
+  width: 100%;
 }
 
 .main {
   background-color: rgb(81, 81, 81);
   display: flex;
   flex-direction: column;
-  margin: 2.5rem; 
-  padding: 2.5rem; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.0rem;;
   width: 80%;
   border-radius: 1.5rem;
  }
@@ -28,18 +33,20 @@
  
  
  .imgData {
-  opacity: 0.8; 
+  opacity: 0.8;
+  margin-top: 2.0rem;
   border-radius: 1.5rem;
-  width: max-content;
+  width: 100%;
  }
 
 
- @media screen and (min-width: 623px) {
+ @media screen and (min-width: 643px) {
   .imgData {
     width: fit-content;
-  }
+    }
  }
  
+
  .h3Data {
   font-size: 1.5rem;
   background-clip: text;
@@ -99,7 +106,7 @@
   border-radius: 0.25rem;
   transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
   transform: scale(1);
-  margin-top: 1rem; /* 4 tailwind units */
+  margin-top: 1rem; 
   align-self: end;
  }
  .sendBtnAble:hover {
@@ -107,7 +114,6 @@
   transform: scale(1.05);
  }
  
- /* sendBtnDisabled */
  .sendBtnDisabled {
   background: linear-gradient(to right, #6b46c1, #f64f59);
   color: #ffffff;
@@ -124,28 +130,25 @@
   transform: scale(1.05);
  }
  
- /* h1Review */
  .h1Review {
-  font-size: 1.5rem; /* 2xl */
-  margin: 0.5rem; /* 2 tailwind units */
-  font-weight: 700; /* font-black */
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  font-weight: 700;
  }
  
- /* pTextReview */
  .pTextReview {
-  font-size: 1.25rem; /* xl */
-  margin: 0.5rem; /* 2 tailwind units */
-  color: #ffffff; /* text-white */
+  font-size: 1.25rem;
+  margin: 0.5rem; 
+  color: #ffffff; 
  }
- 
- /* pEmailReview */
+
  .pEmailReview {
-  font-size: 1rem; /* lg */
-  font-weight: 700; /* font-black */
-  margin: 0.5rem; /* 2 tailwind units */
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.5rem;
  }
  
- /* editBtn */
+ 
  .editBtn {
   background: linear-gradient(to right, #6b46c1, #f64f59);
   color: #ffffff;
@@ -154,15 +157,14 @@
   border-radius: 0.25rem;
   transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
   transform: scale(1);
-  margin: 0.5rem; /* 2 tailwind units */
-  margin-top: 1rem; /* 4 tailwind units */
+  margin: 0.5rem; 
+  margin-top: 1rem; 
  }
  .editBtn:hover {
   background: linear-gradient(to right, #f64f59, #3b82f6);
   transform: scale(1.05);
  }
  
- /* deleteBtn */
  .deleteBtn {
   background: linear-gradient(to right, #f56565, #f64f59);
   color: #ffffff;
@@ -171,9 +173,23 @@
   border-radius: 0.25rem;
   transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
   transform: scale(1);
-  margin-top: 1rem; /* 4 tailwind units */
+  margin-top: 1rem; 
  }
  .deleteBtn:hover {
   background: linear-gradient(to right, #f64f59, #f56565);
   transform: scale(1.05);
+ }
+
+ @media screen and (max-width: 587px) {
+  .imgData {
+    margin: 0rem;
+    }
+  .h1Review {
+    font-size: 0.5rem; 
+    margin: 0.5rem; 
+    font-weight: 700; 
+    }
+  .review {
+    justify-content: center;
+  }
  }

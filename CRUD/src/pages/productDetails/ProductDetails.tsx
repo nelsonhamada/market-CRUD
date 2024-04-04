@@ -140,11 +140,11 @@ const ProductDetails = (): ReactElement => {
           :
           isLogged && isReviewed && verifyID? 
           <div>
-            <h1 className={ h1Review }> {`Nota: ${rating}/5`}</h1>
-            <p className={ pTextReview }> {text} </p>
-            <p className={ pEmailReview }>{`${email}`}</p>
-            <button onClick={ handleEdit } className={ editBtn }>Editar</button>
-            <button onClick={ handleDelete } className={ deleteBtn }>Excluir</button>
+            <h1 className={ styles.h1Review }> {`Nota: ${rating}/5`}</h1>
+            <p className={ styles.pTextReview }> {text} </p>
+            <p className={ styles.pEmailReview }>{`${email}`}</p>
+            <button onClick={ handleEdit } className={ styles.editBtn }>Editar</button>
+            <button onClick={ handleDelete } className={ styles.deleteBtn }>Excluir</button>
           </div> 
           : 
           isReviewed && verifyID?

@@ -7,12 +7,12 @@
   text-align: center;
   border-radius: 0.75rem;
   padding: 5px;
-  width: 95%;
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 880px) {
   .main {
     margin:15px 2px;
+    width: 95%;
   }
 }
 
