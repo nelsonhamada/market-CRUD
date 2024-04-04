@@ -3,7 +3,6 @@ import { useGetComputersQuery } from "../../features/apiSlice";
 import Login from "../../components/login/Login";
 import { Link } from "react-router-dom";
 import Header from "../../components/header/Header";
-import { main, pLoading, divData, spanData, imgData, sectionData, h3Data, pData } from "./css/classNames";
 import styles from "./css/Main.module.css";
 
 const Main = (): ReactElement => {
@@ -17,7 +16,7 @@ const Main = (): ReactElement => {
         <main className={ styles.main }>
       { 
         isLoading ?
-        <p className={ pLoading }>
+        <p>
             Carregando...
           </p>
           :

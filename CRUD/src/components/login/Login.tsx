@@ -2,7 +2,6 @@ import { ReactElement, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
 import userIcon from "./img/user.png";
-import { btnAbleClass, btnDisableClass, divFather, emailUser, fieldsetUser, h3Form, imgUser, inputEmail, inputName, logoutBtn, nameUser } from "./css/className";
 import style from './css/Login.module.css';
 
 const Login = (): ReactElement => {

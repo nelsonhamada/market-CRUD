@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
 import logo from "./logo/logo.jpg";
 import { Link } from "react-router-dom";
-import { btnHome, divFather, h1Name, imgLogo } from "./css/className";
 import styles from "./css/Header.module.css";
 
 const Header= (): ReactElement => {

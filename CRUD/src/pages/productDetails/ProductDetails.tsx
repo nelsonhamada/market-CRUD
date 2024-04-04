@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { changeReview, deleteReview, editReview } from "../../features/reviewSlice";
 import { Map } from "./interface/interface";
 import Header from "../../components/header/Header";
-import { deleteBtn, divFather, editBtn, firstRadio, form, h1Review, h2Data, h3Data, imgData, labelRadio, main, pData, pEmailReview, pForm, pLoading, pTextReview, sendBtnAble, sendBtnDisabled, textArea } from "./css/classNames";
 import styles from "./css/ProductDetails.module.css";
 
 const ProductDetails = (): ReactElement => {
@@ -139,7 +138,8 @@ const ProductDetails = (): ReactElement => {
           </form>
           :
           isLogged && isReviewed && verifyID? 
-          <div>
+          <div className={ styles.review}>
+
             <h1 className={ styles.h1Review }> {`Nota: ${rating}/5`}</h1>
             <p className={ styles.pTextReview }> {text} </p>
             <p className={ styles.pEmailReview }>{`${email}`}</p>
@@ -149,8 +149,8 @@ const ProductDetails = (): ReactElement => {
           : 
           isReviewed && verifyID?
           <div>
-            <h1 className={ h1Review }> {`Nota: ${rating}/5`}</h1>
-            <p className={ pTextReview }> {text} </p>
+            <h1 className={ styles.h1Review }> {`Nota: ${rating}/5`}</h1>
+            <p className={ styles.pTextReview }> {text} </p>
           </div> :
           <p> </p>
         }
