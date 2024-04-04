@@ -1,0 +1,56 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(81,81,81);
+  border-radius: 0.75rem;
+}
+
+.btnHome {
+  margin: 1.25rem;
+  font-weight: 1000;
+  color: #ffff;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  background-color: transparent;
+  border: none;
+  opacity: 0.8;
+}
+
+.h1Name {
+  font-size: 2.25rem;
+  font-weight: 900;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0.75rem;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #48BB78, #ef2fe3, #b906f5);
+}
+
+@media screen and (max-width: 490px) {
+  .h1Name {
+    font-size: 1.5rem;
+  }
+}
+
+
+.imgLogo {
+  width: 4rem;
+  margin: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+@media screen and (max-width: 343px) {
+  .h1Name {
+    font-size: 0.85rem;
+  }
+  
+  .imgLogo {
+    width: 2rem;
+    margin: 10px;
+  }
+  
+  .btnHome {
+    font-size: 0.35rem;
+  }
+}

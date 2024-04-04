@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { changeName, logout } from "../../features/loginSlice";
 import userIcon from "./img/user.png";
 import { btnAbleClass, btnDisableClass, divFather, emailUser, fieldsetUser, h3Form, imgUser, inputEmail, inputName, logoutBtn, nameUser } from "./css/className";
+import style from './css/Login.module.css';
 
 const Login = (): ReactElement => {
 
@@ -31,26 +32,26 @@ const Login = (): ReactElement => {
   
 
   let button: undefined | string;
-  isAble ? button = btnAbleClass : button = btnDisableClass;
+  isAble ? button = style.btnAbleClass : button = style.btnDisableClass;
 
   return (
-    <div className={ divFather }> 
+    <div className={ style.main }> 
       { isLogged ?
-        <fieldset className={ fieldsetUser }>
-          <img className={ imgUser } src={ userIcon } alt="Ícone de usuário."/>
-          <p className={ nameUser }>{name}</p>
-          <p className={ emailUser }>{email}</p>
+        <fieldset className={ style.fieldsetUser }>
+          <img className={ style.imgUser } src={ userIcon } alt="Ícone de usuário."/>
+          <p className={ style.nameUser }>{name}</p>
+          <p className={ style.emailUser }>{email}</p>
           <button
             onClick={ handleClick }
             data-testid="logout-btn"
-            className={ logoutBtn }
+            className={ style.logoutBtn }
           >
             Logout
           </button> 
         </fieldset> 
       :
         <form>
-          <h3 className={ h3Form }>
+          <h3 className={ style.h3Form }>
             Efetue o Login para avaliar um produto.
           </h3>
           <fieldset>
@@ -60,7 +61,7 @@ const Login = (): ReactElement => {
               name="name"
               onChange={ handleChange }
               placeholder="Nome"
-              className={ inputName }
+              className={ style.inputName }
             />
             <br />
           </fieldset>
@@ -71,7 +72,7 @@ const Login = (): ReactElement => {
               name="email"
               onChange={ handleChange }
               placeholder="Email"
-              className={ inputEmail }
+              className={ style.inputEmail }
             />
             <br />
           </fieldset>
